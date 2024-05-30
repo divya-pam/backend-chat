@@ -3,10 +3,10 @@ import "dotenv/config";
 import express from "express";
 import http from "http";
 import mongoose from "mongoose";
+import { Server } from "socket.io";
 import groupRouter from "./routes/groups/routes.js";
 import router from "./routes/messages/routes.js";
 import userRouter from "./routes/user/routes.js";
-import { Server } from "socket.io";
 
 const app = express();
 
@@ -18,11 +18,11 @@ const { PORT } = process.env || 4000;
 app.use(cors());
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://telegram-nyqvvdzyy-divyapams-projects.vercel.app/",
   },
 });
 
-mongoose.connect("mongodb://localhost:27017/telegram-clone");
+mongoose.connect(process.env.MONGODB_URL);
 const db = mongoose.connection;
 db.on("connected", () => {
   console.log("MongoDB connected");
