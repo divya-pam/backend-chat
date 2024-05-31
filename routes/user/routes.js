@@ -1,6 +1,6 @@
 import { Router } from "express";
 import jwt from "jsonwebtoken";
-import { io } from "../../index.js";
+import { io } from "../../app.js";
 import { getUserByAccessToken } from "./../../middleware/index.js";
 import { Users } from "./model.js";
 

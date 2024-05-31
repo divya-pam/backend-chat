@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 const server = http.createServer(app);
-const { PORT } = process.env || 4000;
+const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 const io = new Server(server, {
@@ -30,6 +30,7 @@ db.on("connected", () => {
 
 server.listen(PORT, () => {
   console.log(PORT);
+  console.log(`Server started on port http://localhost:${PORT}`);
 });
 
 app.get("/", (req, res) => {

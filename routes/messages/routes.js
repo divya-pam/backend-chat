@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { io } from "../../index.js";
+import { io } from "../../app.js";
 import { getUserByAccessToken } from "../../middleware/index.js";
 import { Groups } from "../groups/model.js";
 import { Messages } from "../messages/model.js";
